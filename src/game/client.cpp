@@ -3497,6 +3497,7 @@ namespace client
                 case N_QUEUEPOS:
                 {
                     int qcn = getint(p), pos = getint(p);
+                    if(qcn < 0 || qcn >= MAXPLAYERS) break;
                     gameent *o = game::newclient(qcn);
                     bool changed = o->queuepos != pos;
                     o->queuepos = pos;
